@@ -4,9 +4,14 @@
  */
 
 /**
- * Modified by:
+ * CPE2600 Lab 10
+ * Modified by: Logan Amar
  * 
- * Brief summary of modifications:
+ * Brief summary of modifications: Removed exit(1) from handle_signal()
+ * 
+ * To exit, enter in another termial:
+ * pgrep signal_handler
+ * kill -9 <pid>
  */
 
 
@@ -20,7 +25,6 @@
  */
 void handle_signal() {
     printf("Received a signal\n");
-    exit(1);
 }
 
 int main() {

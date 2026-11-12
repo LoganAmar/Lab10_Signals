@@ -4,15 +4,27 @@
  */
 
 /**
- * Modified by:
+ * Modified by: Logan Amar
  * 
- * Brief summary of modifications:
+ * Brief summary of modifications: Added handle_segfault function and registered
+ * SIGSEGV to it.
  */
 
 
 #include <stdio.h>
+#include <signal.h>
+#include <stdlib.h>
 
-int main (int argc, char* argv[]) {
+void handle_segfault(int sig) {
+    (void)sig;
+    printf("Received Segmentation fault\n");
+    exit(1);
+}
+
+int main(){
+
+    signal(SIGSEGV, handle_segfault);
+
     // Declare a null pointer
     int* i = NULL;
 
